@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <h1 id="key"></h1>
+    <p id="key"></p>
 
     <script>
         window.addEventListener("keyup", log);
@@ -23,8 +23,9 @@
         window.addEventListener("keydown", log);
 
         function log(event) {
-            document.querySelector("#key").innerHTML =
-                event.charCode + event.code + event.key + event.keyCode;
+            document.querySelector("#key").innerHTML = `
+            event key: ${event.key}
+            `;
         }
     </script>
 </body>
