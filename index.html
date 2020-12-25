@@ -12,10 +12,21 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
-    <p id="key"></p>
+    <h1 id="key"></h1>
 
     <script>
         window.addEventListener("keyup", log);
@@ -23,9 +34,7 @@
         window.addEventListener("keydown", log);
 
         function log(event) {
-            document.querySelector("#key").innerHTML = `
-            event key: ${event.key}
-            `;
+            document.querySelector("#key").innerHTML = event.key;
         }
     </script>
 </body>
