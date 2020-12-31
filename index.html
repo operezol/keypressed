@@ -22,19 +22,29 @@
             align-items: center;
             min-height: 100vh;
         }
+        h1{
+            margin: 1vw;
+        }
     </style>
 </head>
 
 <body>
-    <h1 id="key"></h1>
+    <h1 id="keyup"></h1>
+    <h1 id="keypress"></h1>
+    <h1 id="keydown"></h1>
 
     <script>
-        window.addEventListener("keyup", log);
-        window.addEventListener("keypress", log);
-        window.addEventListener("keydown", log);
+        window.addEventListener("keyup", (event)=>log(event,'keyup'));
+        window.addEventListener("keypress", (event)=>log(event,'keypress'));
+        window.addEventListener("keydown", (event)=>log(event,'keydown'));
 
-        function log(event) {
-            document.querySelector("#key").innerHTML = event.key;
+        function log(event,id) {
+            event.preventDefault();
+            document.querySelector(`#${id}`).innerHTML = `
+            event: ${id}<br/>
+            key: ${event.key}<br/>
+            keyCode: ${event.keyCode}<br/>
+            `;
         }
     </script>
 </body>
